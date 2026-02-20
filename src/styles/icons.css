@@ -1,0 +1,58 @@
+.icon-btn {
+  background: white;
+  border: 1px solid #e2e8f0;
+  padding: 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+  width: 40px;
+  height: 40px;
+  color: #4a5568;
+}
+
+.icon-btn i {
+  font-size: 18px;
+}
+
+.icon-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #f8fafc, #eef2ff);
+  border-color: #c7d2fe;
+  box-shadow: 0 8px 20px rgba(99,102,241,0.2);
+  color: #4f46e5;
+}
+
+.icon-btn.submit-btn {
+  width: auto;
+  padding: 10px 20px;
+  gap: 8px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  color: white;
+}
+
+.icon-btn.submit-btn i {
+  color: white;
+}
+
+.icon-btn.submit-btn:hover {
+  background: linear-gradient(135deg, #764ba2, #667eea);
+  color: white;
+}
+
+/* Dark mode support */
+[data-theme="dark"] .icon-btn {
+  background: #2d3748;
+  border-color: #4a5568;
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .icon-btn:hover {
+  background: #4a5568;
+  border-color: #667eea;
+  color: white;
+}

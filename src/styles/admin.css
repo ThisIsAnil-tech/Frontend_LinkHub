@@ -1,0 +1,205 @@
+/* frontend/src/styles/admin.css */
+:root {
+  --admin-spacing-xs: 4px;
+  --admin-spacing-sm: 8px;
+  --admin-spacing-md: 16px;
+  --admin-spacing-lg: 24px;
+  --admin-spacing-xl: 32px;
+  --admin-spacing-xxl: 40px;
+  
+  --admin-border-radius-sm: 8px;
+  --admin-border-radius-md: 12px;
+  --admin-border-radius-lg: 18px;
+  --admin-border-radius-xl: 24px;
+  
+  --admin-shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.04);
+  --admin-shadow-md: 0 12px 28px rgba(0, 0, 0, 0.08);
+  --admin-shadow-lg: 0 18px 40px rgba(0, 0, 0, 0.12);
+  --admin-shadow-hover: 0 20px 45px rgba(99, 102, 241, 0.15);
+}
+
+/* Login Container */
+.admin-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: var(--admin-spacing-md);
+  box-sizing: border-box;
+}
+
+/* Login Form */
+.admin-form {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  padding: clamp(24px, 5vw, 40px);
+  border-radius: var(--admin-border-radius-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--admin-spacing-lg);
+  width: min(100%, 400px);
+  box-shadow: var(--admin-shadow-lg);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  animation: formAppear 0.5s ease-out;
+}
+
+@keyframes formAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.admin-form h2 {
+  margin: 0 0 var(--admin-spacing-sm) 0;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  color: #1a1a2e;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Form Inputs */
+.admin-form input {
+  padding: clamp(12px, 3vw, 14px);
+  border-radius: var(--admin-border-radius-md);
+  border: 2px solid #e2e8f0;
+  font-size: clamp(14px, 3vw, 16px);
+  transition: all 0.2s ease;
+  background: white;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.admin-form input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.admin-form input::placeholder {
+  color: #a0aec0;
+}
+
+/* Password Strength Indicator */
+.strength {
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: var(--admin-border-radius-sm);
+  overflow: hidden;
+  margin: -8px 0 4px;
+}
+
+.strength-bar {
+  height: 100%;
+  border-radius: var(--admin-border-radius-sm);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.s1 { 
+  width: 25%; 
+  background: linear-gradient(90deg, #ef4444, #f87171);
+}
+.s2 { 
+  width: 50%; 
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+.s3 { 
+  width: 75%; 
+  background: linear-gradient(90deg, #3b82f6, #60a5fa);
+}
+.s4 { 
+  width: 100%; 
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+}
+
+/* Remember Me Checkbox */
+.remember {
+  display: flex;
+  align-items: center;
+  gap: var(--admin-spacing-sm);
+  font-size: clamp(13px, 2.5vw, 14px);
+  color: #4a5568;
+  cursor: pointer;
+  user-select: none;
+}
+
+.remember input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #667eea;
+}
+
+/* Dashboard Wrapper */
+.admin-wrapper {
+  max-width: min(1200px, 95%);
+  margin: 0 auto;
+  padding: clamp(16px, 4vw, 34px);
+}
+
+/* Dashboard Header */
+.admin-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: clamp(16px, 4vw, 26px);
+  flex-wrap: wrap;
+  gap: var(--admin-spacing-md);
+}
+
+.admin-top h1 {
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  margin: 0;
+  background: linear-gradient(135deg, #1a1a2e, #4a5568);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .admin-top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .admin-form {
+    padding: 24px;
+  }
+  
+  .admin-wrapper {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .admin-container {
+    padding: var(--admin-spacing-sm);
+  }
+  
+  .admin-form {
+    padding: 20px;
+    gap: var(--admin-spacing-md);
+  }
+  
+  .admin-top h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Tablet Landscape */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .admin-wrapper {
+    max-width: 90%;
+    padding: 24px;
+  }
+}

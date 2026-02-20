@@ -1,0 +1,31 @@
+.skeleton-card {
+  padding: 22px;
+  border-radius: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  animation: pulse 1.3s infinite;
+}
+
+.skeleton-logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: #e2e8f0;
+}
+
+.skeleton-lines {
+  margin-top: 12px;
+}
+
+.skeleton-lines div {
+  height: 10px;
+  background: #e2e8f0;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+@keyframes pulse {
+  0% {opacity: .6;}
+  50% {opacity: 1;}
+  100% {opacity: .6;}
+}

@@ -1,0 +1,36 @@
+# Dependencies
+**/node_modules/
+node_modules/
+linkhub_frontend/node_modules/
+
+# Environment files
+.env
+.env.local
+.env.production
+.env.development
+**/.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Package lock files (optional - commit these usually)
+package-lock.json
+# yarn.lock
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Uploads
+backend/store-logo/
+uploads/

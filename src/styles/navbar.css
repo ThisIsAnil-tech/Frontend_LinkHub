@@ -1,0 +1,147 @@
+/* frontend/src/styles/navbar.css */
+.navbar {
+  backdrop-filter: blur(16px);
+  background: rgba(255, 255, 255, 0.75);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding: clamp(12px, 3vw, 16px) clamp(16px, 4vw, 28px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-md);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: var(--transition-base);
+}
+
+[data-theme="dark"] .navbar {
+  background: rgba(30, 41, 59, 0.8);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 2vw, 16px);
+}
+
+.logo {
+  margin: 0;
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--primary-600), var(--primary-800));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.5px;
+}
+
+.admin-email {
+  font-size: clamp(12px, 2.5vw, 14px);
+  color: var(--text-secondary);
+  background: var(--accent-soft);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: clamp(8px, 2vw, 16px);
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-primary);
+  padding: var(--space-xs);
+  border-radius: var(--radius-sm);
+  transition: var(--transition-fast);
+}
+
+.menu-btn:hover {
+  background: var(--accent-soft);
+}
+
+.menu-btn:active {
+  transform: scale(0.95);
+}
+
+/* Desktop Navigation */
+@media (min-width: 769px) {
+  .nav-right {
+    display: flex !important;
+  }
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nav-right {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 16px;
+    background: var(--bg-secondary);
+    padding: var(--space-md);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    display: none;
+    flex-direction: column;
+    gap: var(--space-sm);
+    min-width: 200px;
+    border: 1px solid var(--border-light);
+    backdrop-filter: blur(16px);
+    animation: slideDown 0.3s ease;
+  }
+  
+  .nav-right.show {
+    display: flex;
+  }
+  
+  .admin-email {
+    max-width: 150px;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 12px;
+  }
+  
+  .nav-left {
+    gap: 8px;
+  }
+  
+  .admin-email {
+    display: none; /* Hide email on very small screens */
+  }
+  
+  .nav-right {
+    right: 8px;
+    min-width: 180px;
+  }
+}
