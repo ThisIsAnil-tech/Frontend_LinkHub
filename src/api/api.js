@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || "https://backend-linkhub-ukd0.onrender.com/api"
+  baseURL: process.env.REACT_APP_API_URL || "https://backendlinkhub.onrender.com"
 });
 
 API.interceptors.request.use((req) => {
