@@ -17,7 +17,7 @@ const Home = () => {
 
   const fetchLinks = async () => {
     try {
-      const res = await API.get("/links");
+      const res = await API.get("/api/links");
       const visibleLinks = res.data.filter(l => l.visible === true);
       setLinks(visibleLinks);
       
